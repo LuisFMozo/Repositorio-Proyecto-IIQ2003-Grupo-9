@@ -26,15 +26,18 @@ Para resolver esta ecuación, se utilizó el método número FTCS (Forward Time 
 Nuestro sistema físico corresponde a un proceso transitorio, donde la temperatura del grano cambia según el tiempo debido a una conducción térmica, convección interna, generación metabólica y pérdidas térmicas, estos se discretizan reemplazando las derivadas por sus equivalentes en diferencias finitas. 
 El dominio espacial (z) se divide en Nznodos uniformemente espaciados donde Delta_z= L/(Nz-1), luego el tiempo se discretiza en pasos constantes t, de esta forma la temperatura en un nodo espacial i y tiempo j queda de la forma T_i,j.
 Para cada derivada parcial presente en nuestra ecuación gobernante se reemplazaron sus aproximaciones en diferencias finitas:
-  - Derivada temporal (Aproximación hacia adelante de primer orden):
-<img width="90" height="35" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
-  - Derivada espacial de convección (Aproximación central de segundo orden):
-<img width="90" height="35" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
-  - Derivada espacial de conducción (Aproximación central de segundo orden):
-<img width="90" height="35" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
+  - Derivada temporal (Aproximación hacia adelante de primer orden): <img width="90" height="35" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
+
+  - Derivada espacial de convección (Aproximación central de segundo orden): <img width="90" height="35" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
+
+  - Derivada espacial de conducción (Aproximación central de segundo orden): <img width="90" height="35" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
+  
 Reemplazando estos valores en nuestra ecuación gobernante se obtiene la ecuación: 
+
 <img width="826" height="72" alt="Ecuación gobernante actualizada" src="https://github.com/user-attachments/assets/8b25dfc0-7acf-4e3f-b65c-aa2ca4bc0ea4" />
-Luego de realizar un desarrollo algebraico se llega a una expresión para Tij+1:
+
+Luego de realizar un desarrollo algebraico se llega a una expresión para T_i,j+1:
+
 <img width="831" height="87" alt="Temperatura en el tiempo periodo j+1 para el nodo i despejada" src="https://github.com/user-attachments/assets/ee1698b5-be71-43d6-86d6-fe40d9cd28ee" />
 Expresión la cual es exactamente la forma matricial de la ecuación, de la forma <img width="278" height="57" alt="" src="https://github.com/user-attachments/assets/9ec312e3-67cf-43f4-a078-0fcf1522f613" /> , permitiendo que dependa únicamente de los valores en el tiempo previo y los parámetros físicos del sistema. Esto a su vez nos permite definir una matriz A y vector b, los cuales se rellenarán según nuestra discretización.
 Una vez hecho todo lo anterior, para encontrar la evolución temporal de la temperatura se hace uso de un proceso iterativo, típico del método FTCS. Para lograr esto se hace uso de un ciclo ‘while’ en donde durante cada iteración se actualiza nuestra ecuación <img width="275" height="35" alt="" src="https://github.com/user-attachments/assets/be923d51-71f9-49cd-8934-37531a3f15e7" /> , esto se puede evidenciar en el código como ‘T_new = T_old + dt * (np.dot(A, T_old) + b)’, la nos permite actualizar la temperatura de cada nodo utilizando únicamente  los valores conocidos del tiempo anterior. 
