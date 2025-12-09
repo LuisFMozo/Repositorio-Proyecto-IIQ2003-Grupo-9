@@ -26,11 +26,12 @@ Para resolver esta ecuación, se utilizó el método número FTCS (Forward Time 
 Nuestro sistema físico corresponde a un proceso transitorio, donde la temperatura del grano cambia según el tiempo debido a una conducción térmica, convección interna, generación metabólica y pérdidas térmicas, estos se discretizan reemplazando las derivadas por sus equivalentes en diferencias finitas. 
 El dominio espacial (z) se divide en Nznodos uniformemente espaciados donde Delta_z= L/(Nz-1), luego el tiempo se discretiza en pasos constantes t, de esta forma la temperatura en un nodo espacial i y tiempo j queda de la forma T_i,j.
 Para cada derivada parcial presente en nuestra ecuación gobernante se reemplazaron sus aproximaciones en diferencias finitas:
-  - Derivada temporal (Aproximación hacia adelante de primer orden): <img width="90" height="35" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
 
-  - Derivada espacial de convección (Aproximación central de segundo orden): <img width="90" height="35" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
+  - Derivada temporal (Aproximación hacia adelante de primer orden): <img width="110" height="40" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
 
-  - Derivada espacial de conducción (Aproximación central de segundo orden): <img width="90" height="35" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
+  - Derivada espacial de convección (Aproximación central de segundo orden): <img width="120" height="45" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
+
+  - Derivada espacial de conducción (Aproximación central de segundo orden): <img width="130" height="50" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
   
 Reemplazando estos valores en nuestra ecuación gobernante se obtiene la ecuación: 
 
