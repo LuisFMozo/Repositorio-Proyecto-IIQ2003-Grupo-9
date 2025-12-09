@@ -17,9 +17,6 @@ Los principales supuestos utilizados para este sistema fueron:
   6. Paredes con pérdida térmica por radiación y convección.
   7. El silo comienza la simulación “ya calentado”, sin influencia del proceso de llenado.
   8. Proporción radio/altura igual a 1/5
-<p align="center">
-  <img src="URL_DE_TU_IMAGEN" alt="Texto descriptivo">
-</p>
 <img width="306" height="378" alt="Silo modelado" src="https://github.com/user-attachments/assets/a9f75d3c-e5dd-41c6-ae63-2596bd4caa66" />
 
 Todo lo anterior se representa en nuestra siguiente ecuación gobernante:
@@ -30,7 +27,7 @@ Nuestro sistema físico corresponde a un proceso transitorio, donde la temperatu
 El dominio espacial (z) se divide en Nznodos uniformemente espaciados donde Delta_z= L/(Nz-1), luego el tiempo se discretiza en pasos constantes t, de esta forma la temperatura en un nodo espacial i y tiempo j queda de la forma T_i,j.
 Para cada derivada parcial presente en nuestra ecuación gobernante se reemplazaron sus aproximaciones en diferencias finitas:
 Derivada temporal (Aproximación hacia adelante de primer orden):
-<img width="166" height="74" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
+<img width="49" height="20" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
 Derivada espacial de convección (Aproximación central de segundo orden):
 <img width="182" height="75" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
 Derivada espacial de conducción (Aproximación central de segundo orden):
