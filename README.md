@@ -27,7 +27,7 @@ Nuestro sistema físico corresponde a un proceso transitorio, donde la temperatu
 El dominio espacial (z) se divide en Nznodos uniformemente espaciados donde Delta_z= L/(Nz-1), luego el tiempo se discretiza en pasos constantes t, de esta forma la temperatura en un nodo espacial i y tiempo j queda de la forma T_i,j.
 Para cada derivada parcial presente en nuestra ecuación gobernante se reemplazaron sus aproximaciones en diferencias finitas:
 Derivada temporal (Aproximación hacia adelante de primer orden):
-<img width="49" height="20" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
+<img width="70" height="30" alt="Derivada temporal" src="https://github.com/user-attachments/assets/6f7e04c9-7d29-494a-9da1-705bebb59301" />
 Derivada espacial de convección (Aproximación central de segundo orden):
 <img width="182" height="75" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
 Derivada espacial de conducción (Aproximación central de segundo orden):
