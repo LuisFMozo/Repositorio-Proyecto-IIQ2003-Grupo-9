@@ -17,6 +17,9 @@ Los principales supuestos utilizados para este sistema fueron:
   6. Paredes con pérdida térmica por radiación y convección.
   7. El silo comienza la simulación “ya calentado”, sin influencia del proceso de llenado.
   8. Proporción radio/altura igual a 1/5
+<p align="center">
+  <img src="URL_DE_TU_IMAGEN" alt="Texto descriptivo">
+</p>
 <img width="306" height="378" alt="Silo modelado" src="https://github.com/user-attachments/assets/a9f75d3c-e5dd-41c6-ae63-2596bd4caa66" />
 
 Todo lo anterior se representa en nuestra siguiente ecuación gobernante:
