@@ -31,7 +31,7 @@ Para cada derivada parcial presente en nuestra ecuación gobernante se reemplaza
 
   - Derivada espacial de convección (Aproximación central de segundo orden): <img width="120" height="45" alt="Derivada espacial de convección" src="https://github.com/user-attachments/assets/09a024e0-d1b9-4f70-ba27-38d59f49419e" />
 
-  - Derivada espacial de conducción (Aproximación central de segundo orden): <img width="130" height="50" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
+  - Derivada espacial de conducción (Aproximación central de segundo orden): <img width="134" height="55" alt="Derivada espacial de conducción" src="https://github.com/user-attachments/assets/59c97d90-adb0-41e8-821f-eba714a29563" />
   
 Reemplazando estos valores en nuestra ecuación gobernante se obtiene la ecuación: 
 
@@ -40,7 +40,8 @@ Reemplazando estos valores en nuestra ecuación gobernante se obtiene la ecuaci�
 Luego de realizar un desarrollo algebraico se llega a una expresión para T_i,j+1:
 
 <img width="831" height="87" alt="Temperatura en el tiempo periodo j+1 para el nodo i despejada" src="https://github.com/user-attachments/assets/ee1698b5-be71-43d6-86d6-fe40d9cd28ee" />
-Expresión la cual es exactamente la forma matricial de la ecuación, de la forma <img width="278" height="57" alt="" src="https://github.com/user-attachments/assets/9ec312e3-67cf-43f4-a078-0fcf1522f613" /> , permitiendo que dependa únicamente de los valores en el tiempo previo y los parámetros físicos del sistema. Esto a su vez nos permite definir una matriz A y vector b, los cuales se rellenarán según nuestra discretización.
+
+Expresión la cual es exactamente la forma matricial de la ecuación, de la forma <img width="140" height="40" alt="" src="https://github.com/user-attachments/assets/9ec312e3-67cf-43f4-a078-0fcf1522f613" /> , permitiendo que dependa únicamente de los valores en el tiempo previo y los parámetros físicos del sistema. Esto a su vez nos permite definir una matriz A y vector b, los cuales se rellenarán según nuestra discretización.
 Una vez hecho todo lo anterior, para encontrar la evolución temporal de la temperatura se hace uso de un proceso iterativo, típico del método FTCS. Para lograr esto se hace uso de un ciclo ‘while’ en donde durante cada iteración se actualiza nuestra ecuación <img width="275" height="35" alt="" src="https://github.com/user-attachments/assets/be923d51-71f9-49cd-8934-37531a3f15e7" /> , esto se puede evidenciar en el código como ‘T_new = T_old + dt * (np.dot(A, T_old) + b)’, la nos permite actualizar la temperatura de cada nodo utilizando únicamente  los valores conocidos del tiempo anterior. 
 Posteriormente es de suma importancia aplicar las condiciones de borde a nuestro T_new, esto se puede evidenciar en las líneas de códigos que parte por T_new [-1] y T_new[0], siendo las condiciones de frontera para z = L y z = 0. 
 Tras corregir estos nodos y avanzar el tiempo, se almacena nuestra temperatura con el comando T_old = np.copy(T_new), lo que permite guardar la temperatura T_old como la actual, para utilizarla en la siguiente iteración, este paso es de suma importancia, ya que sin esta asignación, el método no podría continuar la iteración.
